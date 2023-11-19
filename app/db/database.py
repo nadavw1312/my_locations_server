@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 from getpass import getpass
 
-from app.core.config import Settings
+from app.core.config import settings
 
 """
 database url is dialect+driver://username:password@db_address/db_name
@@ -17,7 +17,7 @@ hence there should be no sql syntax used, to use sql syntax use the execute meth
 """
 
 # join the inputs into a complete database url.
-url = f"postgresql://{Settings.DB_USER}:{Settings.DB_PASS}@{Settings.DB_IP}/{Settings.DB_NAME}"
+url = f"postgresql://{settings.DB_USER}:{settings.DB_PASS}@{settings.DB_IP}/{settings.DB_NAME}"
 # url = f"postgresql://{db_user}:{db_pass}@0.0.0.0:5432/{db_name}"
 
 # Create an engine object.
