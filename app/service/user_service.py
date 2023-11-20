@@ -28,6 +28,5 @@ class UserService:
 
     @staticmethod
     def get_user(username: str):
-        print(username)
         user = UserCrud.get_by_username(username)
         return user

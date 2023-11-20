@@ -14,7 +14,5 @@ class CategoryService():
 
     @staticmethod
     def get_by_user_id(owner_id: int):
-        print("get list")
         list = CategoryCrud.get_by_user_id(owner_id)
-        print("lis =", list.__str__())
         return list
