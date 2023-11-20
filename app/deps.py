@@ -1,9 +1,7 @@
-from typing import Union, Any
 from datetime import datetime
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from app.service.user_service import UserService
-
 import jwt
 from app.core.config import settings
 from app.schemas.auth_schema import TokenPayload

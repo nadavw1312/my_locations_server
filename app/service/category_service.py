@@ -1,11 +1,10 @@
 
 
-from app.core.singleton_class import SingletonClass
 from app.db.crud.category_crud import CategoryCrud
 from app.schemas.category import CategoryCreateSchema
 
 
-class CategoryService(SingletonClass):
+class CategoryService():
     @staticmethod
     def create(owner_id: int, title: str):
         category = CategoryCreateSchema(

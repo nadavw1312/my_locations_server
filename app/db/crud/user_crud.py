@@ -1,14 +1,14 @@
 from app.db.crud.base_crud import BaseCrud
 from app.db.models.user_model import UserModel
 from app.schemas.user_schema import UserCreateSchema, UserSchema
+from app.core.singleton import Singleton
 
 
-class _UserCrud(BaseCrud):
+class _UserCrud(Singleton, BaseCrud):
     def __init__(self):
         super().__init__(UserModel)
 
     def create_user(self, user: UserCreateSchema):
-
         db_user = UserModel(
             username=user.username, password=user.password)
         return self.create(db_user)

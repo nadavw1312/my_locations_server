@@ -1,9 +1,10 @@
 from app.db.crud.base_crud import BaseCrud
 from app.db.models.favorite_location import FavoriteLocationModel
 from app.schemas.favorite_location import FavoriteLocationCreateSchema, FavoriteLocationSchema
+from app.core.singleton import Singleton
 
 
-class _FavoriteLocationCrud(BaseCrud):
+class _FavoriteLocationCrud(Singleton,BaseCrud):
     def __init__(self):
         super().__init__(FavoriteLocationModel)
 

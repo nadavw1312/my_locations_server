@@ -1,9 +1,10 @@
 from app.db.crud.base_crud import BaseCrud
 from app.db.models.category import CategoryModel
 from app.schemas.category import CategoryCreateSchema
+from app.core.singleton import Singleton
 
 
-class _CategoryCrud(BaseCrud):
+class _CategoryCrud(Singleton, BaseCrud):
     def __init__(self):
         super().__init__(CategoryModel)
 
