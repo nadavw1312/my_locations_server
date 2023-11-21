@@ -40,4 +40,5 @@ def get_current_user(token: str = Depends(reuseable_oauth)):
             detail="Could not find user",
         )
 
+    
     return user

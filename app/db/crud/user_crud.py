@@ -13,7 +13,7 @@ class _UserCrud(Singleton, BaseCrud):
             username=user.username, password=user.password)
         return self.create(db_user)
 
-    def get_by_username(self, username: str) -> UserSchema:
+    def get_by_username(self, username: str):
         return self.db.query(UserModel).filter(UserModel.username == username).first()
 
     def get_users(self, skip: int = 0, limit: int = 100):

@@ -48,5 +48,6 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
 
 @router.get('/me', summary='Get details of currently logged in user')
 async def get_me(user=Depends(get_current_user)):
+    user = user.__dict__
     del user["password"]
     return user
