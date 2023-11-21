@@ -13,14 +13,14 @@ router = APIRouter(
 )
 
 
-@router.post("/register",summary="register")
+@router.post("/register", summary="register")
 async def register(request: Request):
     body = await request.json()
     UserService.create_user(body["username"], body["password"])
     return "created"
 
 
-@router.post("/login",summary="login")
+@router.post("/login", summary="login")
 async def login(request: Request):
     body = await request.json()
     user = UserService.authenticate_user(body["username"], body["password"])
@@ -33,7 +33,7 @@ async def login(request: Request):
     }
 
 
-@router.post("/token",summary="get access token")
+@router.post("/token", summary="get access token")
 def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = UserService.authenticate_user(
         form_data.username, form_data.password)
@@ -48,4 +48,5 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
 
 @router.get('/me', summary='Get details of currently logged in user')
 async def get_me(user=Depends(get_current_user)):
+    del user["password"]
     return user
